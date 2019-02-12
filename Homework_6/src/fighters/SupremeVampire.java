@@ -19,8 +19,8 @@ public class SupremeVampire extends Vampire implements PostFightActions, Element
     }
 
     @Override
-    public void countRegen(int takenDamage) {
-        super.countRegen(takenDamage);
+    public int attack(BaseFighter opponentTwo) {
+        return super.attack(opponentTwo);
     }
 
     private void countBonusAttack(BaseFighter opponent) {
@@ -41,7 +41,6 @@ public class SupremeVampire extends Vampire implements PostFightActions, Element
     public void action(BaseFighter opponent, int takenDamage) {
         resetAttack();
         elements[0] = (getElementFromArray(elementsArray));
-        countRegen(takenDamage);
         countBonusAttack(opponent);
     }
 
