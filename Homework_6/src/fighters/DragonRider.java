@@ -4,6 +4,7 @@ import fighters.base.BaseFighter;
 import fighters.base.FightBreakAction;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
+import myException.DragonCaughtExc;
 
 import java.util.zip.DataFormatException;
 
@@ -41,13 +42,13 @@ public class DragonRider extends BaseFighter implements PostFightActions, PreFig
     }
 
     @Override
-    public void actionWithFight(BaseFighter fighter) throws DataFormatException {
+    public void actionWithFight(BaseFighter fighter) throws DragonCaughtExc {
         if (!isDragonAlive() && fighter instanceof Dragon) {
             dragonPet = (Dragon) fighter;
             countAttack();
             countHealth();
             System.out.println("Fighter " + this.getName() + " tamed the dragon \n");
-            throw new DataFormatException();
+            throw new DragonCaughtExc();
         } else {
             setFullHP(this);
         }

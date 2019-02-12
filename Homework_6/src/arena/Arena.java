@@ -3,6 +3,7 @@ package arena;
 import fighters.base.BaseFighter;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
+import myException.DragonCaughtExc;
 
 import java.util.zip.DataFormatException;
 
@@ -53,7 +54,7 @@ public class Arena {
         if (opponentOne instanceof PreFightActions) {
             try {
                 ((PreFightActions) opponentOne).actionWithFight(opponentTwo);
-            } catch (DataFormatException e) {
+            } catch (DragonCaughtExc e) {
                 return opponentOne;
             }
         }
