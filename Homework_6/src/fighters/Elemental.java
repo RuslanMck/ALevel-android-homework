@@ -25,16 +25,22 @@ public class Elemental extends BaseFighter implements ElementPower, PostFightAct
     }
 
     @Override
+    public int attack(BaseFighter opponent) {
+        int healthBeforeAttack = opponent.getHealth();
+        opponent.takeDamage(this.getAttack());
+        int regenValue = healthBeforeAttack - opponent.getHealth();
+        if (findSimilar(opponent)) countRegen(regenValue);
+        return this.getAttack();
+    }
+
+    private void countRegen(int regenValue) {
+        setHealth(getHealth() + (regenValue * 2));
+        overHeal(this);
+    }
+
+    @Override
     public void action(BaseFighter opponent, int takenDamage) {
-        if (findSimilar(opponent)) {
-            setHealth(getHealth() + (takenDamage / 2));
-            if (getHealth() < getFullHP()) {
-                setHealth(getHealth() + (takenDamage * 2));
-            }
-            if (getHealth() > getFullHP()) {
-                setHealth(getFullHP());
-            }
-        }
+        if (findSimilar(opponent)) setHealth(getHealth() + (takenDamage / 2));
     }
 
     @Override
