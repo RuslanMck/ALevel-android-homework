@@ -5,7 +5,9 @@ import fighters.base.FightBreakAction;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
 
-public class DragonRider extends BaseFighter implements PostFightActions, FightBreakAction, PreFightActions {
+import java.util.zip.DataFormatException;
+
+public class DragonRider extends BaseFighter implements PostFightActions, PreFightActions {
 
     Dragon dragonPet = null;
     private int pureAttack;
@@ -39,22 +41,17 @@ public class DragonRider extends BaseFighter implements PostFightActions, FightB
     }
 
     @Override
-    public void actionWithFight(BaseFighter fighter, FightCallBack callBack) {
+    public void actionWithFight(BaseFighter fighter) throws DataFormatException {
         if (!isDragonAlive() && fighter instanceof Dragon) {
             dragonPet = (Dragon) fighter;
             countAttack();
             countHealth();
             System.out.println("Fighter " + this.getName() + " tamed the dragon \n");
-            callBack.fightImmediatelyDone(this);
+            throw new DataFormatException();
         } else {
             setFullHP(this);
         }
     }
 
-    @Override
-    public void actionWithFight(BaseFighter fighter) {
-        if (getHealth() < getFullHP()) {
-            setHealth(getFullHP());
-        }
-    }
+
 }
