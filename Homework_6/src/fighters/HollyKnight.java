@@ -17,15 +17,11 @@ public class HollyKnight extends BaseFighter implements PostFightActions, PreFig
     public void action(BaseFighter opponent, int takenDamage) {
         if (getHealth() - takenDamage > heal && getHealth() < getFullHP()) {
             setHealth(getHealth() + heal);
-            overHeal();
+            overHeal(this);
         }
     }
 
-    public void overHeal() {
-        if (getHealth() > getFullHP()) {
-            setHealth(getFullHP());
-        }
-    }
+
 
     @Override
     public void actionWithFight(BaseFighter fighter) {

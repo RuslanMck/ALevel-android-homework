@@ -19,8 +19,8 @@ public class SupremeVampire extends Vampire implements PostFightActions, Element
     }
 
     @Override
-    public int attack(BaseFighter opponentTwo) {
-        return super.attack(opponentTwo);
+    public int attack(BaseFighter opponent) {
+        return super.attack(opponent);
     }
 
     private void countBonusAttack(BaseFighter opponent) {

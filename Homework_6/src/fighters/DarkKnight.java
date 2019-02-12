@@ -16,9 +16,7 @@ public class DarkKnight extends BaseFighter implements PostFightActions, PreFigh
 
     private void countRegen(int regenValue) {
         setHealth(getHealth() + (regenValue / 2));
-        if (getHealth() > getFullHP()) {
-            setHealth(getFullHP());
-        }
+        overHeal(this);
     }
 
     @Override

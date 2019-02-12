@@ -16,16 +16,14 @@ public class Vampire extends BaseFighter implements PostFightActions, PreFightAc
     private void countRegen(int regenValue) {
         setHealth(getHealth() + regenValue);
         setAttack(getAttack() + (regenValue / 2));
-        if (getHealth() > getFullHP()) {
-            setHealth(getFullHP());
-        }
+        overHeal(this);
     }
 
     @Override
-    public int attack(BaseFighter opponentTwo) {
-        int healthBeforeAttack = opponentTwo.getHealth();
-        opponentTwo.takeDamage(this.getAttack());
-        int regenValue = healthBeforeAttack - opponentTwo.getHealth();
+    public int attack(BaseFighter opponent) {
+        int healthBeforeAttack = opponent.getHealth();
+        opponent.takeDamage(this.getAttack());
+        int regenValue = healthBeforeAttack - opponent.getHealth();
         countRegen(regenValue);
         return this.getAttack();
     }

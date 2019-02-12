@@ -1,12 +1,9 @@
 package fighters;
 
 import fighters.base.BaseFighter;
-import fighters.base.FightBreakAction;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
 import myException.DragonCaughtExc;
-
-import java.util.zip.DataFormatException;
 
 public class DragonRider extends BaseFighter implements PostFightActions, PreFightActions {
 
