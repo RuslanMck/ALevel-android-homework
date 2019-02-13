@@ -1,10 +1,10 @@
 package fighters.base;
 
-import myException.DragonCaughtExc;
+import myException.FightImmediatelyDone;
 
 public interface PreFightActions {
 
-    void actionWithFight(BaseFighter fighter) throws DragonCaughtExc;
+    void actionWithFight(BaseFighter fighter) throws FightImmediatelyDone;
 
     default void setFullHP(BaseFighter fighter) {
         fighter.setHealth(fighter.getFullHP());
