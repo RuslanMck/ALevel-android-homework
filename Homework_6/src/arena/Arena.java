@@ -3,9 +3,8 @@ package arena;
 import fighters.base.BaseFighter;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
-import myException.DragonCaughtExc;
-
-import java.util.zip.DataFormatException;
+import myException.FightImmediatelyDone;
+import myException.NoWinner;
 
 public class Arena {
 
@@ -17,12 +16,12 @@ public class Arena {
     public BaseFighter fight(BaseFighter opponentOne, BaseFighter opponentTwo) {
         int roundsCount = 0;
 
-        final BaseFighter[] winner = {null}; //holder for callback result
-
-        winner[0] = preRoundActions(opponentOne, opponentTwo);
-        if (winner[0] != null) return winner[0];
-        winner[0] = preRoundActions(opponentTwo, opponentOne);
-        if (winner[0] != null) return winner[0];
+        try {
+            preRoundActions(opponentOne, opponentTwo);
+            preRoundActions(opponentTwo, opponentOne);
+        } catch (FightImmediatelyDone e) {
+            return e.getWinner();
+        }
 
         while (roundsCount <= 10) {
 
@@ -32,31 +31,33 @@ public class Arena {
             postRoundActions(opponentOne, opponentTwo, takenDamage2);
             postRoundActions(opponentTwo, opponentOne, takenDamage1);
 
-            if (opponentOne.isAlive() && opponentTwo.isAlive()) {
-                roundsCount++;
-            } else if (opponentOne.isAlive()) {
-                return opponentOne;
-            } else if (opponentTwo.isAlive()) {
-                return opponentTwo;
-            }
-            if (roundsCount == 10) {
-                if (opponentOne.getHealth() > opponentTwo.getHealth()) {
+            try {
+                if (opponentOne.isAlive() && opponentTwo.isAlive()) {
+                    roundsCount++;
+                } else if (opponentOne.isAlive()) {
                     return opponentOne;
-                } else if (opponentTwo.getHealth() > opponentOne.getHealth()) {
+                } else if (opponentTwo.isAlive()) {
                     return opponentTwo;
                 }
+                if (roundsCount == 10) {
+                    if (opponentOne.getHealth() > opponentTwo.getHealth()) {
+                        return opponentOne;
+                    } else if (opponentTwo.getHealth() > opponentOne.getHealth()) {
+                        return opponentTwo;
+                    } else if (opponentOne.getHealth() == opponentTwo.getHealth()) {
+                        throw new NoWinner(opponentOne, opponentTwo);
+                    }
+                }
+            } catch (NoWinner e) {
+                return e.getWinner();
             }
         }
         return null;
     }
 
-    private BaseFighter preRoundActions(BaseFighter opponentOne, BaseFighter opponentTwo) {
+    private BaseFighter preRoundActions(BaseFighter opponentOne, BaseFighter opponentTwo) throws FightImmediatelyDone {
         if (opponentOne instanceof PreFightActions) {
-            try {
-                ((PreFightActions) opponentOne).actionWithFight(opponentTwo);
-            } catch (DragonCaughtExc e) {
-                return opponentOne;
-            }
+            ((PreFightActions) opponentOne).actionWithFight(opponentTwo);
         }
         return null;
     }

@@ -25,7 +25,7 @@ public class FightersCreator {
         Dragon dragon3 = new Dragon("dragon3", 100, 27, 0.2, new ElementPower.Elements[]{ElementPower.Elements.WATER, ElementPower.Elements.FIRE});
         DarkKnight dark2 = new DarkKnight("dark2", 100, 25, 0.2);
 
-        BaseFighter[] fighters = {dragon2, elemental1, supremeVampire1, rider1, dragon1, vampire2, dark3, vampire1, holly1, dark1, knight1, dark4, dragon3, dark2, knight2, holly2};
+        BaseFighter[] fighters = {dragon2, rider1, elemental1, supremeVampire1,  dragon1, vampire2, dark3, vampire1, holly1, dark1, knight1, dark4, dragon3, dark2, knight2, holly2};
         return fighters;
     }
 }

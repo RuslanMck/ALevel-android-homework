@@ -3,7 +3,7 @@ package fighters;
 import fighters.base.BaseFighter;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
-import myException.DragonCaughtExc;
+import myException.FightImmediatelyDone;
 
 public class DragonRider extends BaseFighter implements PostFightActions, PreFightActions {
 
@@ -39,17 +39,15 @@ public class DragonRider extends BaseFighter implements PostFightActions, PreFig
     }
 
     @Override
-    public void actionWithFight(BaseFighter fighter) throws DragonCaughtExc {
+    public void actionWithFight(BaseFighter fighter) throws FightImmediatelyDone {
         if (!isDragonAlive() && fighter instanceof Dragon) {
             dragonPet = (Dragon) fighter;
             countAttack();
             countHealth();
             System.out.println("Fighter " + this.getName() + " tamed the dragon \n");
-            throw new DragonCaughtExc();
+            throw new FightImmediatelyDone(this);
         } else {
             setFullHP(this);
         }
     }
-
-
 }
