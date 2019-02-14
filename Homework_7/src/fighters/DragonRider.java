@@ -45,7 +45,7 @@ public class DragonRider extends BaseFighter implements PostFightActions, PreFig
             dragonPet = (Dragon) fighter;
             countAttack();
             countHealth();
-            System.out.println("Fighter " + this.getName() + " tamed the dragon \n");
+            System.out.println("Fighter " + this.getName() + " tamed the dragon" + fighter.getName() + "\n");
             throw new FightImmediatelyDone(this);
         } else {
             setFullHP(this);
