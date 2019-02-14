@@ -9,10 +9,12 @@ public class DragonRider extends BaseFighter implements PostFightActions, PreFig
 
     Dragon dragonPet = null;
     private int pureAttack;
+    private boolean isPetAlive;
 
-    public DragonRider(String name, int health, int attack, double defense) {
+    public DragonRider(String name, int health, int attack, double defense, int pureAttack, boolean isPetAlive) {
         super(name, health, attack, defense);
-        pureAttack = attack;
+        this.pureAttack = pureAttack;
+        this.isPetAlive = isPetAlive;
     }
 
     public void countHealth() {
@@ -24,7 +26,8 @@ public class DragonRider extends BaseFighter implements PostFightActions, PreFig
     }
 
     private boolean isDragonAlive() {
-        return getHealth() > getFullHP();
+        if (getHealth() > getFullHP()) isPetAlive = true;
+        return isPetAlive;
     }
 
     @Override
