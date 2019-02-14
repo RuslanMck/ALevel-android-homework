@@ -7,14 +7,13 @@ import myException.FightImmediatelyDone;
 
 public class DragonRider extends BaseFighter implements PostFightActions, PreFightActions {
 
-    Dragon dragonPet = null;
+    Dragon dragonPet;
     private int pureAttack;
-    private boolean isPetAlive;
 
-    public DragonRider(String name, int health, int attack, double defense, int pureAttack, boolean isPetAlive) {
+    public DragonRider(String name, int health, int attack, double defense, Dragon dragonPet) {
         super(name, health, attack, defense);
-        this.pureAttack = pureAttack;
-        this.isPetAlive = isPetAlive;
+        this.dragonPet = dragonPet;
+        this.pureAttack = attack;
     }
 
     public void countHealth() {
@@ -26,8 +25,7 @@ public class DragonRider extends BaseFighter implements PostFightActions, PreFig
     }
 
     private boolean isDragonAlive() {
-        if (getHealth() > getFullHP()) isPetAlive = true;
-        return isPetAlive;
+        return dragonPet != null;
     }
 
     @Override
