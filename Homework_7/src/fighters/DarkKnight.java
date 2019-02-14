@@ -4,9 +4,10 @@ import fighters.base.BaseFighter;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
 
-public class DarkKnight extends BaseFighter implements PostFightActions, PreFightActions {
-    public DarkKnight(String name, int health, int attack, double defense) {
-        super(name, health, attack, defense);
+public class DarkKnight extends Knight implements PostFightActions, PreFightActions {
+
+    public DarkKnight(String name, int health, int attack, double defense, double shield) {
+        super(name, health, attack, defense, shield);
     }
 
     @Override
