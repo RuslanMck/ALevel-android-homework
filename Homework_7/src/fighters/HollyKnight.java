@@ -4,12 +4,12 @@ import fighters.base.BaseFighter;
 import fighters.base.PostFightActions;
 import fighters.base.PreFightActions;
 
-public class HollyKnight extends BaseFighter implements PostFightActions, PreFightActions {
+public class HollyKnight extends Knight implements PostFightActions, PreFightActions {
 
     int heal;
 
-    public HollyKnight(String name, int health, int attack, double defense, int heal) {
-        super(name, health, attack, defense);
+    public HollyKnight(String name, int health, int attack, double defense, double shield, int heal) {
+        super(name, health, attack, defense, shield);
         this.heal = heal;
     }
 
