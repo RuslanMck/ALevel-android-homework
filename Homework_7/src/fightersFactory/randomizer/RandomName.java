@@ -11,7 +11,7 @@ public class RandomName {
             "Bert", "Alex", "Alastair", "Andrew ", "Angus", "Bartholomew", "Berthold", "Elvis", "Gabe", "Harold", "Hector", "Jack", "Karl", "Malcolm", "Abigail",
     "Alana", "Barbara", "Carmen", "Gladys", "Julia", "Marina"};
     private Random random = new Random();
-    private int rnd = random.nextInt(names.length +1);
+    private int rnd = random.nextInt(names.length );
 
     /**
      * This method returns you a random name from names array.
