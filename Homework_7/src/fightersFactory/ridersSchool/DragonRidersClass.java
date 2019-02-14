@@ -1,5 +1,6 @@
 package fightersFactory.ridersSchool;
 
+import fighters.Dragon;
 import fighters.DragonRider;
 import fightersFactory.dragonsNest.DragonsFactory;
 import fightersFactory.randomizer.BoundedRandomDouble;
@@ -8,10 +9,20 @@ import fightersFactory.randomizer.RandomName;
 
 public class DragonRidersClass implements RidersFactory {
 
-    DragonsFactory dragonsFactory;
-    RandomName randomName;
-    BoundedRandomInt randomInt;
-    BoundedRandomDouble randomDouble;
+    DragonsFactory dragonsFactory = new DragonsFactory() {
+        @Override
+        public Dragon createDragon() {
+            return null;
+        }
+
+        @Override
+        public Dragon createRandomDragon() {
+            return null;
+        }
+    };
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
     public DragonRidersClass() {
     }

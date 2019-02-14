@@ -8,10 +8,9 @@ import fightersFactory.randomizer.RandomName;
 
 public class LoneRidersClass implements RidersFactory {
 
-    DragonsFactory dragonsFactory;
-    RandomName randomName;
-    BoundedRandomInt randomInt;
-    BoundedRandomDouble randomDouble;
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
     public LoneRidersClass() {
     }

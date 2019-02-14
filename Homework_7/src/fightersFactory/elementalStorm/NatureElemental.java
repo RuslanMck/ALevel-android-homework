@@ -9,9 +9,9 @@ import fightersFactory.randomizer.RandomName;
 public class NatureElemental implements ElementalFactory {
 
     ElementPower.Elements elements;
-    RandomName randomName;
-    BoundedRandomInt randomInt;
-    BoundedRandomDouble randomDouble;
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
     public NatureElemental(ElementPower.Elements elements) {
         this.elements = elements;

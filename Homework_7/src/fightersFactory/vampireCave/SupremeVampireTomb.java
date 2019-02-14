@@ -8,9 +8,9 @@ import fightersFactory.randomizer.RandomName;
 
 public class SupremeVampireTomb implements VampireFactory {
 
-    RandomName randomName;
-    BoundedRandomDouble randomDouble;
-    BoundedRandomInt randomInt;
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
     public SupremeVampireTomb() {
     }

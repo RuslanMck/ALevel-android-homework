@@ -6,14 +6,14 @@ import fightersFactory.randomizer.BoundedRandomDouble;
 import fightersFactory.randomizer.BoundedRandomInt;
 import fightersFactory.randomizer.RandomName;
 
-public class HollyKastle implements KnightsFactory {
+public class HollyCastle implements KnightsFactory {
 
     boolean isHolly;
-    RandomName randomName;
-    BoundedRandomDouble randomDouble;
-    BoundedRandomInt randomInt;
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
-    public HollyKastle(boolean isHolly) {
+    public HollyCastle(boolean isHolly) {
         this.isHolly = isHolly;
     }
 
