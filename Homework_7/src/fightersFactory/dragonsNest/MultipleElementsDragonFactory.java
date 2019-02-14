@@ -9,14 +9,12 @@ import fightersFactory.randomizer.RandomName;
 public class MultipleElementsDragonFactory implements DragonsFactory {
 
     ElementPower.Elements[] elements;
-    boolean isOneElemental;
-    RandomName randomName;
-    BoundedRandomInt randomInt;
-    BoundedRandomDouble randomDouble;
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
-    public MultipleElementsDragonFactory(ElementPower.Elements[] elements, boolean isOneElemental) {
+    public MultipleElementsDragonFactory(ElementPower.Elements[] elements) {
         this.elements = elements;
-        this.isOneElemental = isOneElemental;
     }
 
     @Override

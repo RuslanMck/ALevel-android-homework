@@ -9,9 +9,9 @@ import fightersFactory.randomizer.RandomName;
 public class OneElementDragonFactory implements DragonsFactory {
 
     ElementPower.Elements elements;
-    RandomName randomName;
-    BoundedRandomInt randomInt;
-    BoundedRandomDouble randomDouble;
+    RandomName randomName = new RandomName();
+    BoundedRandomInt randomInt = new BoundedRandomInt();
+    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
 
     public OneElementDragonFactory(ElementPower.Elements elements) {
         this.elements = elements;
