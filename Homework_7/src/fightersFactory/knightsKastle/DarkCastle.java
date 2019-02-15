@@ -1,5 +1,6 @@
 package fightersFactory.knightsKastle;
 
+import fighters.DarkKnight;
 import fighters.Knight;
 import fightersFactory.randomizer.BoundedRandomDouble;
 import fightersFactory.randomizer.BoundedRandomInt;
@@ -10,7 +11,7 @@ public class DarkCastle implements KnightsFactory {
     boolean isDark;
     RandomName randomName = new RandomName();
     BoundedRandomInt randomInt = new BoundedRandomInt();
-    BoundedRandomDouble randomDouble= new BoundedRandomDouble();
+    BoundedRandomDouble randomDouble = new BoundedRandomDouble();
 
     public DarkCastle(boolean isDark) {
         this.isDark = isDark;
@@ -29,7 +30,7 @@ public class DarkCastle implements KnightsFactory {
     }
 
     public Knight createRandomDarkKnight() {
-        return new Knight(randomName.setRandomName(), randomInt.generate(90, 100), randomInt.generate(10, 15), randomDouble.generate(0.1, 1),
+        return new DarkKnight(randomName.setRandomName(), randomInt.generate(90, 100), randomInt.generate(10, 15), randomDouble.generate(0.1, 1),
                 randomDouble.generate(0.1, 1));
     }
 }
