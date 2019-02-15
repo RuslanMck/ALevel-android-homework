@@ -11,34 +11,20 @@ public class Tour {
 
     public void createAllFighters() {
 
-        FightersCreator creator = new FightersCreator();
-        BaseFighter[] listOfFighters = creator.createFighters();
+        BaseFighter[][] fighters = createFightersBarrack();
+        startTournament(fighters);
+    }
 
-        int arrayLength = 0;
-        for (int a = listOfFighters.length; a % 2 == 0; ) {
-            a = a / 2;
-            arrayLength++;
-        }
-
-        BaseFighter[][] fighters = new BaseFighter[arrayLength + 1][];
-
-        int s = listOfFighters.length;
-        for (int i = 0; i < fighters.length; i++) {
-            fighters[i] = new BaseFighter[s];
-            s = s / 2;
-        }
-
-        fighters[0] = listOfFighters;
-
+    public void startTournament(BaseFighter[][] fighters) {
         int f = 0;
         int a = 1;
-        for (int i = 0; i < fighters.length -1; i++) {
+        for (int i = 0; i < fighters.length - 1; i++) {
             for (int j = 0; j < fighters[i].length; j++) {
                 fighters[a][f] = arena.fight(fighters[i][j], fighters[i][++j]);
                 f++;
             }
 
-            if (i == fighters.length -2){
+            if (i == fighters.length - 2) {
                 System.out.println("Winner ");
                 result.printResult(fighters[a]);
             } else {
@@ -48,7 +34,26 @@ public class Tour {
             }
             a++;
             f = 0;
-
         }
+    }
+
+    public BaseFighter[][] createFightersBarrack() {
+        FightersCreator creator = new FightersCreator();
+        BaseFighter[] listOfFighters = creator.createFighters();
+
+        int arrayLength = 0;
+        for (int a = listOfFighters.length; a % 2 == 0; ) {
+            a = a / 2;
+            arrayLength++;
+        }
+        BaseFighter[][] fighters = new BaseFighter[arrayLength + 1][];
+
+        int s = listOfFighters.length;
+        for (int i = 0; i < fighters.length; i++) {
+            fighters[i] = new BaseFighter[s];
+            s = s / 2;
+        }
+        fighters[0] = listOfFighters;
+        return fighters;
     }
 }
