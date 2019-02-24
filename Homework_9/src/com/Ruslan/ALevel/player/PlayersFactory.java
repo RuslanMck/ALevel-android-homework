@@ -1,8 +1,9 @@
-package player;
+package com.Ruslan.ALevel.player;
 
-import league.Leagues;
-import randomizer.BoundedRandomInt;
-import randomizer.RandomName;
+import com.Ruslan.ALevel.league.Leagues;
+import com.Ruslan.ALevel.player.BasePlayer;
+import com.Ruslan.ALevel.randomizer.BoundedRandomInt;
+import com.Ruslan.ALevel.randomizer.RandomName;
 
 public class PlayersFactory {
 

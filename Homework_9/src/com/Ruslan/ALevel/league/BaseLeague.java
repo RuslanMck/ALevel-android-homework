@@ -1,6 +1,6 @@
-package league;
+package com.Ruslan.ALevel.league;
 
-import player.BasePlayer;
+import com.Ruslan.ALevel.player.BasePlayer;
 
 import java.util.ArrayList;
 

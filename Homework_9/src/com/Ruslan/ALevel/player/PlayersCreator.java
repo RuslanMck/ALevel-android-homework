@@ -1,10 +1,10 @@
-package player;
+package com.Ruslan.ALevel.player;
 
-import league.Leagues;
+import com.Ruslan.ALevel.league.Leagues;
 
 import java.util.ArrayList;
 
-public class PlayesrCreator {
+public class PlayersCreator {
 
     private PlayersFactory playersFactory = new PlayersFactory();
 

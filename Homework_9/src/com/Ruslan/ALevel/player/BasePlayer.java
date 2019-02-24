@@ -1,4 +1,4 @@
-package player;
+package com.Ruslan.ALevel.player;
 
 public class BasePlayer {
     private String name;

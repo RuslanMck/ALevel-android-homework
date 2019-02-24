@@ -1,4 +1,4 @@
-package randomizer;
+package com.Ruslan.ALevel.randomizer;
 
 import java.util.Random;
 
