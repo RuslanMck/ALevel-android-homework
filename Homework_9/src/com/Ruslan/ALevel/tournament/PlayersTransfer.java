@@ -16,7 +16,7 @@ public class PlayersTransfer {
         statistics.topScore(secondLeague.getPlayers());
 
         for (int i = 0; i < firstLeague.getPlayers().size(); i++) {
-            if (firstLeague.getPlayers().get(i).getScore() > firstLeague.getWinPoints() * 3) {
+            if (firstLeague.getPlayers().get(i).getScore() > firstLeague.getWinPoints() * (firstLeague.getPlayers().size() / 2)) {
                 player = firstLeague.getPlayers().get(i);
                 secondLeague.getPlayers().add(player);
                 firstLeague.getPlayers().remove(i);
