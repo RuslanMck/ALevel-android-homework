@@ -1,7 +1,6 @@
 package com.Ruslan.ALevel.player;
 
 import com.Ruslan.ALevel.league.Leagues;
-import com.Ruslan.ALevel.player.BasePlayer;
 import com.Ruslan.ALevel.randomizer.BoundedRandomInt;
 import com.Ruslan.ALevel.randomizer.RandomName;
 

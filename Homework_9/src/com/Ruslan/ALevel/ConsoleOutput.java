@@ -25,6 +25,15 @@ public class ConsoleOutput {
         }
     }
 
+    public void winStatistics(ArrayList<BasePlayer> players, int number, Leagues leagues) {
+        System.out.println("\nTop " + number + " effective players in " + leagues + " league:");
+        for (int i = 0; i < number; i++) {
+            if (players.get(i).getScore() > 0) {
+                System.out.println(players.get(i).getName() + " " + players.get(i).getWinCount() + " victories;");
+            }
+        }
+    }
+
     public void matchResultWinner(BasePlayer player) {
         System.out.println("In this game " + player.getName() + " won.");
     }

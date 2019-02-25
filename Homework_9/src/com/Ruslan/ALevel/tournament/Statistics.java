@@ -12,7 +12,7 @@ public class Statistics {
     ConsoleOutput output = new ConsoleOutput();
 
 
-    public ArrayList topAge(ArrayList<BasePlayer> arrayList) {
+    private ArrayList topAge(ArrayList<BasePlayer> arrayList) {
         arrayList.sort(new Comparator<BasePlayer>() {
             @Override
             public int compare(BasePlayer p1, BasePlayer p2) {
@@ -22,11 +22,21 @@ public class Statistics {
         return null;
     }
 
-    public ArrayList topScore(ArrayList<BasePlayer> arrayList) {
+    private ArrayList topScore(ArrayList<BasePlayer> arrayList) {
         arrayList.sort(new Comparator<BasePlayer>() {
             @Override
             public int compare(BasePlayer p1, BasePlayer p2) {
                 return Integer.compare(p2.getScore(), p1.getScore());
+            }
+        });
+        return null;
+    }
+
+    private ArrayList mostWin(ArrayList<BasePlayer> arrayList){
+        arrayList.sort(new Comparator<BasePlayer>() {
+            @Override
+            public int compare(BasePlayer p1, BasePlayer p2) {
+                return Integer.compare(p2.getWinCount(), p1.getWinCount());
             }
         });
         return null;
@@ -37,5 +47,8 @@ public class Statistics {
         output.ageStatistics(players, places, leagues);
         topScore(players);
         output.scoreStatistics(players, places, leagues);
+        mostWin(players);
+        output.winStatistics(players,places,leagues);
+
     }
 }

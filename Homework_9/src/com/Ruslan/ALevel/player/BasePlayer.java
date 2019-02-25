@@ -5,6 +5,7 @@ public class BasePlayer implements Comparable<BasePlayer> {
     private int age;
     private int score;
     private int skillPoints;
+    private int winCount = 0;
 
     public BasePlayer(String name, int age, int skillPoints) {
         this.name = name;
@@ -39,5 +40,13 @@ public class BasePlayer implements Comparable<BasePlayer> {
 
     public void setSkillPoints(int skillPoints) {
         this.skillPoints = skillPoints;
+    }
+
+    public int getWinCount() {
+        return winCount;
+    }
+
+    public void setWinCount(int winCount) {
+        this.winCount = winCount;
     }
 }

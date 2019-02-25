@@ -25,12 +25,14 @@ public class Match {
             plusScore(playerFirst, league);
             minusScore(playerSecond, league);
             playerFirst.setSkillPoints(playerFirst.getSkillPoints() + 1);
+            playerFirst.setWinCount(playerFirst.getWinCount() + 1);
             output.matchResultWinner(playerFirst);
             return new GamesResult(playerFirst.getName(), playerSecond.getName(), playerFirst.getScore(), playerSecond.getScore(), league);
         } else if (playerFirstSkill < playerSecondSkill) {
             plusScore(playerSecond, league);
             minusScore(playerFirst, league);
             playerSecond.setSkillPoints(playerSecond.getSkillPoints() + 1);
+            playerSecond.setWinCount(playerSecond.getWinCount() + 1);
             output.matchResultWinner(playerSecond);
             return new GamesResult(playerSecond.getName(), playerFirst.getName(), playerSecond.getScore(), playerFirst.getScore(), league);
         } else if (playerFirstSkill == playerSecondSkill) {
