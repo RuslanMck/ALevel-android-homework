@@ -1,6 +1,6 @@
 package com.Ruslan.ALevel.player;
 
-public class BasePlayer {
+public class BasePlayer implements Comparable<BasePlayer> {
     private String name;
     private int age;
     private int score;
@@ -10,6 +10,11 @@ public class BasePlayer {
         this.name = name;
         this.age = age;
         this.skillPoints = skillPoints;
+    }
+
+    @Override
+    public int compareTo(BasePlayer player) {
+        return this.age - player.age;
     }
 
     public String getName() {

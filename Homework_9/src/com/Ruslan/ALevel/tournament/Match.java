@@ -13,30 +13,29 @@ public class Match {
     ConsoleOutput output = new ConsoleOutput();
 
 
-
-    public MatchResult startMatch(BasePlayer playerFirst, BasePlayer playerSecond, BaseLeague league) {
+    public GamesResult startMatch(BasePlayer playerFirst, BasePlayer playerSecond, BaseLeague league) {
 
         playerFirstSkill = countSkill(playerFirst);
         playerSecondSkill = countSkill(playerSecond);
         return compareSkill(playerFirst, playerSecond, league);
     }
 
-    private MatchResult compareSkill(BasePlayer playerFirst, BasePlayer playerSecond, BaseLeague league) {
+    private GamesResult compareSkill(BasePlayer playerFirst, BasePlayer playerSecond, BaseLeague league) {
         if (playerFirstSkill > playerSecondSkill) {
             plusScore(playerFirst, league);
             minusScore(playerSecond, league);
             playerFirst.setSkillPoints(playerFirst.getSkillPoints() + 1);
             output.matchResultWinner(playerFirst);
-            return new MatchResult(playerFirst.getName(),playerSecond.getName(),league);
+            return new GamesResult(playerFirst.getName(), playerSecond.getName(), playerFirst.getScore(), playerSecond.getScore(), league);
         } else if (playerFirstSkill < playerSecondSkill) {
             plusScore(playerSecond, league);
             minusScore(playerFirst, league);
             playerSecond.setSkillPoints(playerSecond.getSkillPoints() + 1);
             output.matchResultWinner(playerSecond);
-            return new MatchResult(playerSecond.getName(),playerFirst.getName(),league);
+            return new GamesResult(playerSecond.getName(), playerFirst.getName(), playerSecond.getScore(), playerFirst.getScore(), league);
         } else if (playerFirstSkill == playerSecondSkill) {
             output.matchResultNoWinner();
-            return new MatchResult("No winner", "No loser", league);
+            return new GamesResult("No winner", "No loser", 0, 0, league);
         }
         return null;
     }
