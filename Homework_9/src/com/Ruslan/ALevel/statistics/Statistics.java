@@ -1,6 +1,5 @@
-package com.Ruslan.ALevel.tournament;
+package com.Ruslan.ALevel.statistics;
 
-import com.Ruslan.ALevel.ConsoleOutput;
 import com.Ruslan.ALevel.league.Leagues;
 import com.Ruslan.ALevel.player.BasePlayer;
 
@@ -22,7 +21,7 @@ public class Statistics {
         return null;
     }
 
-    private ArrayList topScore(ArrayList<BasePlayer> arrayList) {
+    public ArrayList topScore(ArrayList<BasePlayer> arrayList) {
         arrayList.sort(new Comparator<BasePlayer>() {
             @Override
             public int compare(BasePlayer p1, BasePlayer p2) {
@@ -32,7 +31,7 @@ public class Statistics {
         return null;
     }
 
-    private ArrayList mostWin(ArrayList<BasePlayer> arrayList){
+    private ArrayList mostWin(ArrayList<BasePlayer> arrayList) {
         arrayList.sort(new Comparator<BasePlayer>() {
             @Override
             public int compare(BasePlayer p1, BasePlayer p2) {
@@ -48,7 +47,7 @@ public class Statistics {
         topScore(players);
         output.scoreStatistics(players, places, leagues);
         mostWin(players);
-        output.winStatistics(players,places,leagues);
+        output.winStatistics(players, places, leagues);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.Ruslan.ALevel.tournament;
+package com.Ruslan.ALevel.statistics;
 
 import com.Ruslan.ALevel.league.BaseLeague;
 

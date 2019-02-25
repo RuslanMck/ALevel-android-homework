@@ -1,9 +1,10 @@
 package com.Ruslan.ALevel.tournament;
 
-import com.Ruslan.ALevel.ConsoleOutput;
+import com.Ruslan.ALevel.statistics.ConsoleOutput;
 import com.Ruslan.ALevel.league.BaseLeague;
 import com.Ruslan.ALevel.player.BasePlayer;
 import com.Ruslan.ALevel.randomizer.BoundedRandomInt;
+import com.Ruslan.ALevel.statistics.GamesResult;
 
 public class Match {
 

@@ -1,9 +1,8 @@
-package com.Ruslan.ALevel;
+package com.Ruslan.ALevel.statistics;
 
 import com.Ruslan.ALevel.league.BaseLeague;
 import com.Ruslan.ALevel.league.Leagues;
 import com.Ruslan.ALevel.player.BasePlayer;
-import com.Ruslan.ALevel.tournament.GamesResult;
 
 import java.util.ArrayList;
 
@@ -55,6 +54,10 @@ public class ConsoleOutput {
 
     public void startMatch(int gameNumber, BasePlayer firstPlayer, BasePlayer secondPlayer) {
         System.out.println("We start a " + gameNumber + " game. Opponents: " + firstPlayer.getName() + "; " + secondPlayer.getName() + ".");
+    }
+
+    public void playerTransfer(BasePlayer player, BaseLeague league) {
+        System.out.println(player.getName() + " was transfer to " + league.getName() + " league.");
     }
 
 }
